@@ -1,0 +1,9 @@
+%adjust-buttons {
+  grid-column: 3 / 4;
+  background: setcolor(blue, light65);
+  border: 1px solid setcolor(green, base);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

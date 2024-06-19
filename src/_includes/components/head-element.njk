@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>{{title}}</title>
+    
+    <!-- Service Worker Initialize -->
+    {# this works because of the env.js in _data directory #}
+    {% if env.enviro == "build" %}
+      {% set js %}
+        {% include "../../js/inline/disckeeper-sw-register.js" %}
+      {% endset %}
+      <script>
+        {{ js | jsmin | safe }}
+      </script>
+    {% endif %}
+
+    {% if env.enviro == "build" %}
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKP3HVNC38"></script>
+      <!-- also Google tag (gtag.js) -->
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-RKP3HVNC38');
+      </script>
+    {% endif %}
+    
+    {% include 'components/head/styles.njk' %}
+
+    <!-- non-essential links -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    
+    {% include 'components/head/generic-meta.njk' %}
+
+    {% include 'components/head/microsoft-meta.njk' %}
+
+    {% include 'components/head/chrome-meta.njk' %}
+
+    <!-- The Essential Links -->
+    <link rel="author" href="http://www.moosedog.io">
+    <link rel="canonical" href="https://disckeeper.io">
+
+    {% include 'components/head/facebook-meta.njk' %}
+
+    {% include 'components/head/twitter-meta.njk' %}
+
+  </head>

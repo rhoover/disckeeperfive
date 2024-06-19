@@ -1,0 +1,19 @@
+%create-success {
+  position: fixed;
+  left: 100vw;
+  top: 25vh;
+  &-display {
+    align-self: center;
+    transform: translateX(-95vw);
+    transition: transform 1s cubic-bezier(0.350, 0.010, 0.430, 0.930) 0s;
+    padding: 49.6px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    color: setcolor(green, base);
+    background-color: setcolor(white, light75);
+    font-size: typesize($size-scale, "three");
+    border: 1px solid setcolor(green, base);
+    border-radius: 10.4px;
+  }
+}

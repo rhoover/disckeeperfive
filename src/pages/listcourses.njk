@@ -1,0 +1,21 @@
+---
+  layout: layouts/base.njk
+  title: DiscKeeper - Saved Courses
+  permalink: "/pages/listcourses.html"
+---
+
+<!-- if no courses -->
+<section class="nocourses"></section>
+
+<!-- course list -->
+<section class="items"><p>Incoming Data...</p></section>
+
+<!-- want to delete rounds because of deleting course? -->
+<dialog class="modal">
+  <h4 class="modal-header">Saved Rounds Conflict</h4>
+  <p class="modal-warning">You have <span class="modal-warning-number"></span> saved round(s) for the <span class="modal-warning-name"></span> course.<br/><br />Are you **sure** you want to nuke everything?</p>
+  <button class="modal-choices" data-options="yes">Yes!</button>
+  <button class="modal-choices" data-options="no">No, my mistake.</button>
+</dialog>
+
+{% include "components/scroll-button.njk" %}

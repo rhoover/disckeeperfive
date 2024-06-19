@@ -1,0 +1,69 @@
+.form {
+  @extend %form;
+  grid-template-rows: repeat(4, max-content);
+  &-input {
+    &-text {
+      @extend %form-input-text;
+    }
+    &-label {
+      @extend %form-input-label;
+      display: block;
+      transform: translateY(0px);
+    }
+  }
+  &-submit {
+    @extend %form-input-button;
+    @extend %box-shadow;
+  }
+  &-required {
+    font-size: typesize($size-scale, "five");
+    color: setcolor(red, base);
+    padding: 8px;
+    &-error {
+      border: 1px solid setcolor(red, base);
+      border-radius: 8px;
+    }
+  }
+}
+
+.exists {
+  @extend %dialog-success;
+  &-button {
+    @extend %form-input-button;
+    margin-top: 16px;
+    width: 100%;
+  }
+}
+
+.success {
+  @extend %dialog-success;
+  &-button {
+  @extend %form-input-button;
+  margin-top: 16px;
+  width: 100%;
+  }
+}
+
+.name {
+  font-weight: 700;
+}
+
+// for success & exists box
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+// for backdrop
+keyframes show-backdrop {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

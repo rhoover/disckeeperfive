@@ -1,0 +1,42 @@
+{
+  "name": "disckeeperfive",
+  "version": "0.0.1",
+  "description": "Moving To Cloud Storage",
+  "main": "index.js",
+  "scripts": {
+    "watch:critical": "sass --style compressed --no-source-map --watch src/sass/critical.scss:src/critical/critical.css",
+    "watch:eleventy": "rm -rf dist && npx @11ty/eleventy --serve",
+    "serve:rollup": "rollup -c --watch",
+    "serve": "run-p serve:rollup watch:eleventy watch:critical",
+    "serviceworker:create": "node src/_eleventy/utilities/service-worker-create.js",
+    "serviceworker:min": "terser disckeeper-service-worker.js -o disckeeper-service-worker-min.js",
+    "build:start": "rm -rf dist && rollup -c && npx @11ty/eleventy",
+    "build": "run-s serviceworker:create serviceworker:min build:start"
+  },
+  "keywords": [
+    "disc golf",
+    "disc golf scoring",
+    "disc golf score keeping",
+    "firebase",
+    "firestore"
+  ],
+  "author": "robin@moosedog.io",
+  "license": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "eleventy-plugin-rev": "^2.0.0",
+    "eleventy-sass": "^2.2.4",
+    "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^5.6.0",
+    "luxon": "^3.4.4",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^4.16.2",
+    "sass": "^1.75.0",
+    "terser": "^5.30.3"
+  },
+  "dependencies": {
+    "firebase": "^10.11.0"
+  }
+}

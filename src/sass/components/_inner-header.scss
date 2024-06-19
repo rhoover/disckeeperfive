@@ -1,0 +1,13 @@
+%inner-header {
+  grid-column: 1 / 4;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  border-top: 2px solid setcolor(green, base);
+  border-bottom: 2px solid setcolor(green, base);
+  background: setcolor(blue, light45);
+  font-size: typesize($size-scale, "four");
+  // line-height: $h1-size;
+  color: setcolor(green, dark35);
+}

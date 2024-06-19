@@ -1,0 +1,7 @@
+%home-item-base {
+  background-size: cover;
+  background-position: center;
+  font-weight: 700;
+  cursor: pointer;
+  @extend %box-shadow;
+}

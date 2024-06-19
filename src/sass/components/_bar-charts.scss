@@ -1,0 +1,16 @@
+%chart-bars {
+  grid-column-start: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  font-size: typesize($size-scale, "four");
+  font-weight: 700;
+  line-height: $h3-size;
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+  background-color: rgba(setcolor(blue, base),0.55);
+  border-top: 1px solid setcolor(black, base);
+  border-right: 1px solid setcolor(black, base);
+  border-bottom: 1px solid setcolor(black, base);
+}

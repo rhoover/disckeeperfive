@@ -1,0 +1,132 @@
+//Courtesy: http://sassmeister.com/gist/d1b14280c6160f91f295
+//Better Color Functions
+@function lighten-new($color, $amount: 0%) {
+  @if $amount == 0 {$amount: 0%;}
+  @return lighten($color, calc($amount / 100%) * (100% - lightness($color)));
+}
+
+@function darken-new($color, $amount: 0%) {
+  @if $amount == 0 {$amount: 0%;}
+  @return darken($color, calc($amount / 100%) * (lightness($color)));
+}
+
+//then do this:http://tallys.github.io/color-theory/
+// And now, onto the show:
+$green: rgb(109, 154, 101);
+$blue:rgb(101, 109, 154);
+$red: rgb(114, 0, 36);
+$white: rgb(240, 240, 240);
+$black: rgb(44, 44, 44);
+
+//Courtesy: http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+$colors: (
+  green: (
+    dark85: darken-new($green, 85%),
+    dark75: darken-new($green, 75%),
+    dark65: darken-new($green, 65%),
+    dark55: darken-new($green, 55%),
+    dark45: darken-new($green, 45%),
+    dark35: darken-new($green, 35%),
+    dark25: darken-new($green, 25%),
+    dark15: darken-new($green, 15%),
+    base: $green,
+    light10: lighten-new($green, 10%),
+    light15: lighten-new($green, 15%),
+    light25: lighten-new($green, 25%),
+    light35: lighten-new($green, 35%),
+    light45: lighten-new($green, 45%),
+    light55: lighten-new($green, 55%),
+    light65: lighten-new($green, 65%),
+    light75: lighten-new($green, 75%),
+    light85: lighten-new($green, 85%),
+    light95: lighten-new($green, 95%),
+    light98: lighten-new($green, 98%),
+  ),
+  blue: (
+    dark85: darken-new($blue, 85%),
+    dark75: darken-new($blue, 75%),
+    dark65: darken-new($blue, 65%),
+    dark55: darken-new($blue, 55%),
+    dark45: darken-new($blue, 45%),
+    dark35: darken-new($blue, 35%),
+    dark25: darken-new($blue, 25%),
+    dark15: darken-new($blue, 15%),
+    base: $blue,
+    light10: lighten-new($blue, 10%),
+    light15: lighten-new($blue, 15%),
+    light25: lighten-new($blue, 25%),
+    light35: lighten-new($blue, 35%),
+    light45: lighten-new($blue, 45%),
+    light55: lighten-new($blue, 55%),
+    light65: lighten-new($blue, 65%),
+    light75: lighten-new($blue, 75%),
+    light85: lighten-new($blue, 85%),
+    light95: lighten-new($blue, 95%),
+    light98: lighten-new($blue, 98%),
+  ),
+  red: (
+    dark85: darken-new($red, 85%),
+    dark75: darken-new($red, 75%),
+    dark65: darken-new($red, 65%),
+    dark55: darken-new($red, 55%),
+    dark45: darken-new($red, 45%),
+    dark35: darken-new($red, 35%),
+    dark25: darken-new($red, 25%),
+    dark15: darken-new($red, 15%),
+    base: $red,
+    light15: lighten-new($red, 15%),
+    light25: lighten-new($red, 25%),
+    light35: lighten-new($red, 35%),
+    light45: lighten-new($red, 45%),
+    light55: lighten-new($red, 55%),
+    light65: lighten-new($red, 65%),
+    light75: lighten-new($red, 75%),
+    light85: lighten-new($red, 85%),
+    light95: lighten-new($red, 95%),
+    light98: lighten-new($red, 98%),
+  ),
+  white: (
+    dark85: darken-new($white, 85%),
+    dark75: darken-new($white, 75%),
+    dark65: darken-new($white, 65%),
+    dark55: darken-new($white, 55%),
+    dark45: darken-new($white, 45%),
+    dark35: darken-new($white, 35%),
+    dark25: darken-new($white, 25%),
+    dark15: darken-new($white, 15%),
+    base: $white,
+    light15: lighten-new($white, 15%),
+    light25: lighten-new($white, 25%),
+    light35: lighten-new($white, 35%),
+    light45: lighten-new($white, 45%),
+    light55: lighten-new($white, 55%),
+    light65: lighten-new($white, 65%),
+    light75: lighten-new($white, 75%),
+    light85: lighten-new($white, 85%),
+    light95: lighten-new($white, 95%),
+  ),
+  black: (
+    dark85: darken-new($black, 85%),
+    dark75: darken-new($black, 75%),
+    dark65: darken-new($black, 65%),
+    dark55: darken-new($black, 55%),
+    dark45: darken-new($black, 45%),
+    dark35: darken-new($black, 35%),
+    dark25: darken-new($black, 25%),
+    dark15: darken-new($black, 15%),
+    base: $black,
+    light15: lighten-new($black, 15%),
+    light25: lighten-new($black, 25%),
+    light35: lighten-new($black, 35%),
+    light45: lighten-new($black, 45%),
+    light55: lighten-new($black, 55%),
+    light65: lighten-new($black, 65%),
+    light75: lighten-new($black, 75%),
+    light85: lighten-new($black, 85%),
+  )
+);
+
+// Our function for shorter usage of map-get();
+@function setcolor($color, $tone: base) {
+  @return map-get(map-get($colors, $color), $tone);
+}

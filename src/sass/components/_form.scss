@@ -1,0 +1,40 @@
+%form {
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  row-gap: 38.4px;
+  margin-top: 49.6px;
+  &-input-text {
+    width: 100%;
+    padding-left: 16px;
+    border-radius: 4px;
+    border: 1px solid setcolor(green, base);
+    line-height: $h4-size;
+    font-size: typesize($size-scale, "four");
+  }
+  &-input-label {
+    display: inline-block;
+    transform: translateY(-5.75rem);
+    background: setcolor(white, base);
+    font-size: typesize($size-scale, "four");
+    font-weight: 700;
+  }
+  &-input-button {
+    position: relative;
+    font-size: typesize($size-scale, "four");
+    padding: 16px 0px;
+    background: setcolor(blue, light85);
+    border: 1px solid setcolor(green, dark45);
+    border-radius: 10.4px;
+    color: setcolor(green, dark15);
+    @extend %box-shadow;
+    &:disabled {
+      opacity: 50%;
+      color: setcolor(black, light65);
+      background: setcolor(blue, light85);
+      border: 1px solid setcolor(red, base);
+    }
+    &:active {
+      background: linear-gradient(rgba(setcolor(blue, light25), 0.25), rgba(setcolor(blue, light15), 0.35));
+    }
+  }
+}

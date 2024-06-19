@@ -1,0 +1,232 @@
+.roundsetup {
+  display: grid;
+  grid-template-rows: repeat(3, max-content);
+  row-gap: 28.8px;
+  align-items: center;
+  position: relative;
+}
+
+.modal {
+  &-nocourse {
+    @extend %dialog-success;
+    padding: 16px;
+    & p {
+      font-size: typesize($size-scale, "five");
+      margin-bottom: 16px;
+    }
+    &-link {
+      @extend %form-input-button;
+      font-size: typesize($size-scale, "five");
+      & a {
+        text-decoration: none;
+        color: setcolor(green, base);
+      }
+    }
+  }
+  &-courses {
+    @extend %dialog-success;
+    &[open] {
+      padding: 0px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      row-gap: 32px;
+    }
+    &-header {
+      @extend %modal-header;
+    }
+    &-choice {
+      height: 2rem;
+      width: 85%;
+      justify-self: center;
+      border: 1px solid setcolor(blue, base);
+      border-radius: 4px;
+      & p {
+        line-height: 2rem;
+      }
+    }
+    &-list {
+      @extend %modal-list;
+    }
+    &-item {
+      @extend %modal-list-item;
+      & > input[type="radio"] {
+        @extend %modal-list-item-radio;
+        &::before {
+          @extend %modal-list-item-before;
+        }
+        &:checked::before {
+          transform: scale(1);
+        }
+      }
+    }
+    &-footer {
+      @extend %modal-footer;
+      &-close {
+        &-icon {
+          @extend %modal-footer-svg;
+          stroke: setcolor(red, dark15);
+          grid-column: 1 / 2;
+        }
+        &-text {
+          @extend %modal-footer-text;
+          grid-column: 2 / 3;
+          justify-self: start;
+        }
+      }
+      &-save {
+        &-icon {
+          @extend %modal-footer-svg;
+          grid-column: 4 / 5;
+          border: 1px solid setcolor(green, base);
+          fill: setcolor(green, base);
+        }
+        &-text {
+          @extend %modal-footer-text;
+          color: setcolor(green, base);
+          grid-column: 3 / 4;
+        }
+      }
+    }
+  }
+  &-players {
+    @extend %dialog-success;
+    &[open] {
+      padding: 0px;
+      display: grid;
+      grid-template-rows: auto 140px 1fr auto;
+      row-gap: 16px;
+    }
+    &-header {
+      @extend %modal-header;
+    }
+    &-explain {
+      width: 85%;
+      padding: 16px;
+      justify-self: center;
+      text-align: center;
+      font-weight: 700;
+      border: 1px solid setcolor(blue, base);
+      border-radius: 4px;
+      background-color: rgba(setcolor(blue, base), 0.15);
+    }
+    &-list {
+      @extend %modal-list;
+    }
+    &-item {
+      @extend %modal-list-item;
+      & > input[type="checkbox"] {
+        @extend %modal-list-item-radio;
+        &::before {
+          @extend %modal-list-item-before;
+        }
+        &:checked::before {
+          transform: scale(1);
+        }
+      }
+    }
+    &-footer {
+      @extend %modal-footer;
+      &-close {
+        &-icon {
+          @extend %modal-footer-svg;
+          stroke: setcolor(red, dark15);
+          grid-column: 1 / 2;
+        }
+        &-text {
+          @extend %modal-footer-text;
+          grid-column: 2 / 3;
+          justify-self: start;
+        }
+      }
+      &-save {
+        &-icon {
+          @extend %modal-footer-svg;
+          grid-column: 4 / 5;
+          border: 1px solid setcolor(green, base);
+          fill: setcolor(green, base);
+        }
+        &-text {
+          @extend %modal-footer-text;
+          color: setcolor(green, base);
+          grid-column: 3 / 4;
+        }
+      }
+    }
+  }
+  &-success {
+    @extend %dialog-success;
+    padding: 32px;
+    & p {
+      font-size: typesize($size-scale, "one");
+    }
+  }
+}
+
+.content {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  row-gap: 16px;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid setcolor(blue, base);
+  border-radius: 16px;
+  padding: 32px;
+  &-results {
+    width: 100%;
+    border: 1px solid setcolor(green, base);
+    border-radius: 4px;
+  }
+}
+
+.selections {
+  &-course {
+    text-align: center;
+    padding: 16px 0px;
+    font-size: typesize($size-scale, "five");
+    &-error {
+      color: setcolor(red, base);
+      font-size: typesize($size-scale, "zero");
+      font-weight: 700;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid setcolor(red, base);
+      background-color: rgba(setcolor(red, base), 0.10);
+      visibility: hidden;
+      display: none;
+      &-show {
+        visibility: visible;
+        display: block;
+      }
+    }
+  }
+  &-players {
+    text-align: center;
+    padding: 16px 0px;
+    font-size: typesize($size-scale, "five");
+  }
+}
+
+.button {
+  @extend %form-input-button;
+  padding: 16px 16px;
+  font-size: typesize($size-scale, "five");
+}
+
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+// for backdrop
+keyframes show-backdrop {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

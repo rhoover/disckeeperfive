@@ -1,0 +1,20 @@
+
+    <!-- Critical Styles -->
+    {% set critical %}
+      {% include "../../../critical/critical.css" %}
+    {% endset %}
+    <style>
+      {{ critical | safe }}
+    </style>
+
+    <!-- Normal Styles -->
+
+    {# This is how to concatenate strings with Nunjucks, join stuff in an array #}
+    {% set cssName = ['../css/dk-', page.fileSlug, '.css'] | join %}
+
+    {# note here the rev, signaling to the plugin for it's cache-busting revisioning prowess #}
+    {% if page.fileSlug == '' %}
+      <link rel="stylesheet" type="text/css" href="{{ "/css/dk-home.css" | rev }}" media="tty" onload="this.media='screen'"/>
+    {% else %}
+      <link rel="stylesheet" type="text/css" href="{{ cssName | rev }}" media="tty" onload="this.media='screen'"/>
+    {% endif%}

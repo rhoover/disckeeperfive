@@ -1,0 +1,178 @@
+.statistics {
+  position: relative;
+}
+
+.courses {
+  display: grid;
+  row-gap: 16px;
+  &-wait {
+    text-align: center;
+    padding: 16px;
+    border: 1px solid setcolor(blue, base);
+    border-radius: 8px;
+  }
+}
+
+.course-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  row-gap: 16px;
+  align-items: center;
+  justify-items: center;
+  line-height: $h3-size;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid setcolor(blue, base);
+  background: setcolor(white, light55);
+  @extend %box-shadow;
+  & p {
+    grid-column: 1 / 3;
+    font-size: typesize($size-scale, "four");
+  }
+  &-button {
+    @extend %form-input-button;
+    padding: 0px;
+    font-size: typesize($size-scale, "zero");
+    font-weight: 700;
+    width: 90%;
+  }
+  & [data-choice="round"] {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+  & [data-choice="holes"] {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+}
+
+// holes modal dialog
+.holes {
+  // @extend %modal;
+  @extend %dialog-success;
+  padding: 0px;
+  &[open] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    width: 100vw;
+  }
+  &-header {
+    @extend %modal-header;
+    &-text {
+      @extend %modal-header-text;
+    }
+  }
+  &-closing {
+    @extend %modal-closing;
+  }
+  &-close {
+    @extend %modal-close-button;
+  }
+  // https://joshcollinsworth.com/blog/css-grid-bar-charts
+  &-chart {
+    @extend %modal-chart;
+    color: setcolor(black, base);
+    overflow-y: scroll;
+    &-hole {
+      @extend %modal-chart-item;
+      gap: 8px;
+      &-name {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+        font-size: typesize($size-scale, "four");
+        font-weight: 700;
+        border-bottom: 1px solid setcolor(blue, base);
+        line-height: $h4-size;
+        &-par {
+          text-align: right;
+        }
+      }
+      // & p:nth-child(n+2):nth-child(-n+4) {
+      //   @extend %chart-bars;
+      // }
+      & canvas {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+// course modal dialog
+.course {
+  // @extend %modal;
+  @extend %dialog-success;
+  padding: 0px;
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 100vw;
+  }
+  &-header {
+    @extend %modal-header;
+    &-text {
+      @extend %modal-header-text;
+    }
+  }
+  &-closing {
+    @extend %modal-closing;
+  }
+  &-close {
+    @extend %modal-close-button;
+  }
+  // https://joshcollinsworth.com/blog/css-grid-bar-charts
+  &-chart {
+    @extend %modal-chart-item;
+    color: setcolor(black, base);
+    margin: 16px;
+    padding-top: 12px;
+    & p {
+      // @extend %chart-bars;
+      line-height: $h2-size;
+    }
+  }
+}
+
+.warning {
+  font-size: typesize($size-scale, "five");
+  text-align: center;
+  margin-bottom: 32px;
+  &-link {
+    @extend %form-input-button;
+    font-size: typesize($size-scale, "five");
+    height: 64px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+.scroller-modal {
+  @extend %scroller-modal;
+  &-visible {
+    @extend %scroller-modal-visible;
+  }
+}
+
+// for modal dialogs
+@keyframes show {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+// for backdrop
+keyframes show-backdrop {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

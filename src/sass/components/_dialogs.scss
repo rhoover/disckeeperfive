@@ -1,0 +1,24 @@
+%dialog {
+  &-success {
+    opacity: 0;
+    text-align: center;
+    color: setcolor(green, base);
+    background-color: setcolor(white, light75);
+    font-size: typesize($size-scale, "three");
+    padding: 32px;
+    border: 1px solid setcolor(green, base);
+    border-radius: 10.4px;
+    &[open] {
+      animation:  1s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards show;
+      margin: auto;
+      background-color: rgba(setcolor(white, light75), 0.95);
+      &::backdrop {
+        animation: 1s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards show-backdrop;
+      }
+    }
+    &::backdrop {
+      background: rgba(setcolor(blue, base), 0.35);
+      backdrop-filter: blur(0.2rem);
+    }
+  }
+}

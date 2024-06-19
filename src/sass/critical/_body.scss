@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "quicksandregular";
+      src: url("../../fonts/quicksand-regular.woff2") format('woff2'),
+          url("../../fonts/quicksand-regular.woff") format('woff');
+  font-display: swap;
+}
+
+html {
+  display: grid;
+  min-height: 100%;
+}
+body {
+  background-color: setcolor(white, light25);
+  font-family: "quicksandregular", sans-serif;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  color: setcolor(black, dark25);
+  display: grid;
+  grid-template-columns: minmax(16px, 1fr) minmax(auto, 840px) minmax(16px, 1fr);
+  grid-template-rows: auto 1fr;
+  & > * {
+    grid-column: 2 / 3;
+  }
+  &:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
+a {
+  line-height: calc($p-size * $scale);
+}
+ul, ol, p {
+  font-size: typesize($size-scale, "zero");
+  line-height: calc(typesize($size-scale, "zero") * 1.33);
+}
+h5 { 
+  font-size: typesize($size-scale, "five");
+  line-height: calc(typesize($size-scale, "five") * 1.33);
+} 
+h4 { 
+  font-size: typesize($size-scale, "four");
+  line-height: calc(typesize($size-scale, "four") * 1.33);
+}
+h3 { 
+  font-size: typesize($size-scale, "three");
+  line-height: calc(typesize($size-scale, "three") * 1.33);
+} 
+h2 { 
+  font-size: typesize($size-scale, "two");
+  line-height: calc(typesize($size-scale, "two") * 1.33);
+}
+h1 { 
+  font-size: typesize($size-scale, "one");
+  line-height: calc(typesize($size-scale, "one") * 1.33);
+}
+
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.75s;
+}

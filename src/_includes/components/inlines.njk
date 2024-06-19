@@ -1,0 +1,76 @@
+  <!-- back button behavior -->
+  {% set js %}
+    {% include "../../js/inline/button-back.js" %}
+  {% endset %}
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+
+  <!-- nav-menu button behavior -->
+  {% set js %}
+    {% include "../../js/inline/button-nav.js" %}
+  {% endset %}
+  <script>
+    {{ js | jsmin | safe }}
+  </script>
+
+  {% if page.fileSlug == '' %}
+  <!-- home share button behavior-->
+    {% set js %}
+      {% include "../../js/inline/share.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+  {% if page.fileSlug == 'listcourses' %}
+  <!-- list courses scroller behavior -->
+    {% set js %}
+      {% include "../../js/inline/scroll-top.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+  
+  {% if page.fileSlug == 'roundhistory' %}
+    <!-- round history scroller button behavior-->
+    {% set js %}
+      {% include "../../js/inline/scroll-top.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+    <!-- round history modal-scroller button behavior-->
+    {% set js %}
+      {% include "../../js/inline/scroll-top-modal-history.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+  {% if page.fileSlug == 'statistics' %}
+  <!-- statistics-modal scroll behavior-->
+    {% set js %}
+      {% include "../../js/inline/scroll-top-modal-statistics.js" %}
+    {% endset %}
+    <script>
+      {{ js | jsmin | safe }}
+    </script>
+  {% endif %}
+
+  <!-- scripts -->
+  {% if page.fileSlug == 'statistics' %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  {% endif %}
+  
+  {% set scriptName = ['/js/scripts/dk-', page.fileSlug, '.js'] | join %}
+
+  {% if page.fileSlug == '' %}
+    <script type="module" src="{{ '/js/scripts/dk-home.js' | url }}" defer></script>
+  {% else %}
+    <script type="module" src="{{ scriptName | url }}" defer></script>
+  {% endif%}

@@ -1,0 +1,78 @@
+---
+layout: layouts/base.njk
+title: DiscKeeper - Home
+---
+
+<section class="creds">
+  <button class="creds-button" data-button="signup">
+    <span>Sign-Up ➤</span><br />
+  </button>
+  <button class="creds-button" data-button="login">
+    <span>Log-In ➤</span><br />
+  </button>
+  <p>One Or The Other, Please Choose To Keep Score!</p>
+</section>
+
+<a href="/pages/roundsetup.html" class="links links-scoring">
+  <p>Score A Round</p>
+</a>
+<a href="/pages/createcourse.html" class="links links-createcourse">
+  <p>Create A Course</p>
+</a>
+<a href="/pages/createplayer.html" class="links links-createplayer">
+  <p>Create A Player</p>
+</a>
+<a href="/pages/roundhistory.html" class="links links-roundhistory">
+  <p>Round History</p>
+</a>
+
+<!-- modal signup -->
+<dialog class="modal" data-modal="signup">
+  <h3> Sign Up</h3>
+  <hr />
+  <form class="modal-form">
+    <label for="signup-name-first">
+      First Name:
+      <input type="text" name="signup-namefirst" id="signup-name-first" placeholder="Your First Name..." autocomplete="on" required/>
+    </label>
+    <label for="signup-name-last">
+      Last Name:
+      <input type="text" name="signup-namelast" id="signup-name-last" placeholder="Your Last Name..." autocomplete="on" required/>
+    </label>
+    <label for="signup-email">
+      Email:
+      <input type="email" name="signup-email" id="signup-email" placeholder="Your Email..." autocomplete="on" required/>
+    </label>
+    <label for="signup-password">
+      Password:
+      <input type="password" name="signup-password" id="signup-password"  placeholder="Your Password..." autocomplete="on" required/>
+      <svg class="Password-show" height="24.894" width="50" viewBox="0 0 50 24.894" aria-hidden="true"><path d="M25 0C10.993 0 0 5.46 0 12.447c0 6.986 10.993 12.447 25 12.447s25-5.46 25-12.447C50 6.383 41.24 0 25 0zM3.582 12.41c0-4.042 8.227-8.545 20.142-8.864-4.326.638-7.695 4.36-7.695 8.865s3.33 8.23 7.69 8.87c-11.95-.284-20.14-4.79-20.14-8.866zm22.695 8.866c4.326-.638 7.695-4.36 7.695-8.865 0-1.093-.213-2.23-.674-3.292-.638.922-1.702 1.525-2.943 1.525-1.986 0-3.582-1.596-3.582-3.582 0-1.24.603-2.304 1.56-2.942-.638-.248-1.31-.425-2.056-.532 13.156.32 20.142 5.25 20.142 8.866 0 4.043-8.198 8.547-20.148 8.83z"></path></svg>
+    </label>
+    <button data-button="signup-submit" type="submit">Submit  ➤</button>
+    <p data-success="signup">Please KNOW, this info is NOT being Shared With ANY Third Party!</p>
+  </form>
+</dialog>
+
+<!-- modal login -->
+<dialog class="modal" data-modal="login">
+  <h3>Log In</h3>
+  <hr />
+  <form class="modal-form">
+    <label for="login-email">
+      Email:
+      <input type="email" id="login-email" placeholder="Your Email..." autocomplete="on" required/>
+    </label>
+    <label for="login-password">
+      Password:
+      <input type="password" id="login-password"  placeholder="Your Password..." autocomplete="on" required/>
+      <svg class="Password-show" height="24.894" width="50" viewBox="0 0 50 24.894" aria-hidden="true"><path d="M25 0C10.993 0 0 5.46 0 12.447c0 6.986 10.993 12.447 25 12.447s25-5.46 25-12.447C50 6.383 41.24 0 25 0zM3.582 12.41c0-4.042 8.227-8.545 20.142-8.864-4.326.638-7.695 4.36-7.695 8.865s3.33 8.23 7.69 8.87c-11.95-.284-20.14-4.79-20.14-8.866zm22.695 8.866c4.326-.638 7.695-4.36 7.695-8.865 0-1.093-.213-2.23-.674-3.292-.638.922-1.702 1.525-2.943 1.525-1.986 0-3.582-1.596-3.582-3.582 0-1.24.603-2.304 1.56-2.942-.638-.248-1.31-.425-2.056-.532 13.156.32 20.142 5.25 20.142 8.866 0 4.043-8.198 8.547-20.148 8.83z"></path></svg>
+    </label>
+    <button data-button="login-submit" type="submit">Submit  ➤</button>
+    <p data-success="login">Please KNOW, this info is NOT being Shared With ANY Third Party!</p>
+  </form>
+</dialog>
+
+<div class="share">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24"><path d="M18 2c-1.645 0-3 1.355-3 3 0 .191.022.377.057.559L7.922 9.72A2.969 2.969 0 0 0 6 9c-1.645 0-3 1.355-3 3s1.355 3 3 3c.732 0 1.399-.278 1.922-.72l7.135 4.16A2.956 2.956 0 0 0 15 19c0 1.645 1.355 3 3 3s3-1.355 3-3-1.355-3-3-3c-.733 0-1.398.28-1.922.723l-7.135-4.164C8.978 12.377 9 12.19 9 12c0-.191-.022-.377-.057-.559l7.135-4.162C16.601 7.722 17.268 8 18 8c1.645 0 3-1.355 3-3s-1.355-3-3-3zm0 2c.564 0 1 .436 1 1 0 .564-.436 1-1 1-.564 0-1-.436-1-1 0-.564.436-1 1-1zM6 11c.564 0 1 .436 1 1 0 .564-.436 1-1 1-.564 0-1-.436-1-1 0-.564.436-1 1-1zm12 7c.564 0 1 .436 1 1 0 .564-.436 1-1 1-.564 0-1-.436-1-1 0-.564.436-1 1-1z"/></svg>
+	<p class="share-text">share</p>
+</div>

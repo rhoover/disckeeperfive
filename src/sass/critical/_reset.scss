@@ -1,0 +1,49 @@
+
+/*
+  some of this
+  minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css
+*/
+
+/*
+  but mostly this
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+  font-size: typesize($size-scale, "zero");;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td, th {
+  padding: 0;
+}
+iframe {
+  border: 0;
+}
