@@ -61,7 +61,7 @@ module.exports = function(eleventyConfig) {
 
   // minify html for production build
   if (process.env.ELEVENTY_RUN_MODE === 'build') {
-  eleventyConfig.addTransform("htmlmin", minifyProduction);
+    eleventyConfig.addTransform("htmlmin", minifyProduction);
   };
 
   //create json file for service worker
