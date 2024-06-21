@@ -13,7 +13,8 @@ export default {
     'dk-roundsetup': 'src/js/scripts/roundsetup.js',
     'dk-roundscoring': 'src/js/scripts/roundscoring.js',
     'dk-roundhistory': 'src/js/scripts/roundhistory.js',
-    'dk-statistics': 'src/js/scripts/statistics.js'
+    'dk-statistics': 'src/js/scripts/statistics.js',
+    'dk-logout': 'src/js/scripts/logout.js'
   },
   output: {
     format: 'es',

@@ -15,7 +15,7 @@ let signUpModal = document.querySelector('[data-modal="signup"]');
 let loginModal = document.querySelector('[data-modal="login"]');
 let loginSubmit = document.querySelector('[data-button="login-submit"]');
 let signupSubmit = document.querySelector('[data-button="signup-submit"]');
-let passwordToggle = document.querySelectorAll('.toggle');
+let passwordToggle = document.querySelectorAll('.password-show');
 let frontLinks = document.querySelectorAll('.links');
 
 // assign falsey
