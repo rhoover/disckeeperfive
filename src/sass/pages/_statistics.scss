@@ -148,6 +148,15 @@
     height: 64px;
     text-align: center;
     text-decoration: none;
+    &-none {
+      display: block;
+      width: 100%;
+      margin-top: 32px;
+      @extend %form-input-button;
+      text-align: center;
+      text-decoration: none;
+      font-size: typesize($size-scale, "five");
+    }
   }
 }
 

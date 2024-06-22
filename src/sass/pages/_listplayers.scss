@@ -17,6 +17,12 @@
   & div:last-of-type {
     margin-bottom: 32px;
   }
+  & a {
+    @extend %form-input-button;
+    text-align: center;
+    text-decoration: none;
+    font-size: typesize($size-scale, "five");
+  }
 }
 
 .item {

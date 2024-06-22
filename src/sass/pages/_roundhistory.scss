@@ -26,6 +26,12 @@
   font-weight: 700;
   line-height: $h3-size;
   font-size: typesize($size-scale, "five");
+  &-link {
+    @extend %form-input-button;
+    text-align: center;
+    text-decoration: none;
+    font-size: typesize($size-scale, "five");
+  }
 }
 
 .close {
