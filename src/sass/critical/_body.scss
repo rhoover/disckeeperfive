@@ -25,9 +25,6 @@ body {
     overflow: hidden;
   }
 }
-// a {
-//   line-height: calc($p-size * $scale);
-// }
 ul, ol, p, a {
   font-size: typesize($size-scale, "zero");
   line-height: calc(typesize($size-scale, "zero") * 1.33);
